@@ -14,7 +14,6 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    // Добавление коньков
     public function createSkate()
     {
         return view('admin.skates.create');
@@ -33,14 +32,13 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success', 'Коньки добавлены');
     }
 
-    // Просмотр бронирований
     public function reservations()
     {
         $reservations = Reservation::with('user','skate')->orderBy('created_at','desc')->get();
         return view('admin.reservations.index', compact('reservations'));
     }
 
-    // Просмотр оплаченных билетов
+
     public function tickets()
     {
         $tickets = Ticket::with('user')->where('paid', true)->orderBy('created_at','desc')->get();

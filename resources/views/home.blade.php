@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(btn){
         btn.addEventListener('click', async function () {
-            btn.disabled = true;  // сразу блокируем кнопку
+            btn.disabled = true;  
             btn.textContent = 'Покупка...';
 
             const response = await fetch("{{ route('tickets.buy') }}", {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
 
             if(data.success){
-                btn.textContent = data.message; // "Билет куплен"
+                btn.textContent = data.message; 
             } else {
                 btn.disabled = false;
                 btn.textContent = 'Купить билет';

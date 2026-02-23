@@ -49,9 +49,9 @@
     const phoneInput = document.getElementById('phoneInput');
 
     phoneInput.addEventListener('input', function(e) {
-        let x = phoneInput.value.replace(/\D/g, ''); // убираем все не цифры
-        if(x.startsWith('7')) x = x.substring(1); // если ввели 7 в начале, убираем
-        x = x.substring(0, 10); // максимум 10 цифр после +7
+        let x = phoneInput.value.replace(/\D/g, ''); 
+        if(x.startsWith('7')) x = x.substring(1); 
+        x = x.substring(0, 10);
 
         let formatted = '+7 ';
         if(x.length > 0) formatted += '(' + x.substring(0, Math.min(3, x.length));
